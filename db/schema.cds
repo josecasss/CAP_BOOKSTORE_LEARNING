@@ -15,10 +15,14 @@ entity Authors : cuid, managed {
 }
 
 entity Books : cuid, managed {
-    title    : String;
-    author   : Association to Authors; //Asociacion a la entidad Authors 1..1 //Un libro solo puede tener un Autor
-    Chapters : Composition of many Chapters
-                   on Chapters.book = $self
+    title       : String;
+    author      : Association to Authors; //Asociacion a la entidad Authors 1..1 //Un libro solo puede tener un Autor
+    genre       : String;
+    publishedAt : Date;
+    pages       : Integer;
+    price       : Decimal(9, 2);
+    Chapters    : Composition of many Chapters
+                      on Chapters.book = $self
 }
 
 
