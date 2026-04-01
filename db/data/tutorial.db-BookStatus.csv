@@ -1,0 +1,6 @@
+code,criticality,displayText
+N,0,None
+R,5,Rare
+A,3,Available
+L,2,Low Stock
+U,1,Unavailable

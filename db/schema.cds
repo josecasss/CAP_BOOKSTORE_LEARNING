@@ -21,16 +21,39 @@ entity Books : cuid, managed {
     publishedAt : Date;
     pages       : Integer;
     price       : Decimal(9, 2);
+    stock       : Integer;
+    status : Association to BookStatus;
     Chapters    : Composition of many Chapters
                       on Chapters.book = $self
+
 }
+
+entity BookStatus { //Entidad para el Status
+    key code        : String(1) enum { //Type BookStatusCode para los codigos
+            Available = 'A';
+            Low_Stock = 'L';
+            Unavailable = 'U';
+            Rare = 'R';
+            None = 'N';
+        }
+        criticality : Integer;
+        displayText : String;
+}
+
+
+//Status enum de esta manera, pero se puede hacer directo en la entidad
+// type BookStatusCode : String(1) enum{
+//     Available = 'A';
+//     Low_Stock = 'L';
+//     Unavailable = 'U';
+// }
 
 
 entity Chapters : cuid, managed {
         number : Integer;
     key book   : Association to Books;
-    title: String;
-    pages: Integer;
+        title  : String;
+        pages  : Integer;
 
 }
 
