@@ -30,5 +30,8 @@ mta_archives/
 # .vscode
 # .idea
 
+# Claude Code (local only, not needed in BAS)
+.claude/
+
 # @cap-js/cds-typer
 @cds-models
